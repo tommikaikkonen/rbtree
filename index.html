@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Red-Black Tree Node Insertion</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
+
+        <!--[if lt IE 9]>
+            <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+            <script>window.html5 || document.write('<script src="js/vendor/html5shiv.js"><\/script>')</script>
+        <![endif]-->
+    </head>
+    <body>
+        <nav class="navbar nav-default navbar-inverse">
+          <div class="container">
+            <ul class="nav navbar-nav">
+              <li>
+                <a href="#" class="js-case js-case1">Case 1</a>
+              </li>
+              <li>
+                <a href="#" class="js-case js-case2">Case 2</a>
+              </li>
+              <li>
+                <a href="#" class="js-case js-case3">Case 3</a>
+              </li>
+              <li>
+                <a href="#" class="js-case js-case4">Case 4</a>
+              </li>
+              <li>
+                <a href="#" class="js-case js-case5">Case 5</a>
+              </li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+              <li>
+                <button type="button" class="btn btn-primary navbar-btn js-insert-node">Insert node</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <!--[if lt IE 7]>
+            <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+        <![endif]-->
+
+      <svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <defs>
+          <symbol id="icon-arrow-left" viewBox="0 0 1024 1024">
+            <title>arrow-left</title>
+            <path class="path1" d="M36.571 548.571q0-29.714 21.143-52l372-371.429q21.714-21.714 52-21.714 29.714 0 51.429 21.714l42.857 42.286q21.714 21.714 21.714 52t-21.714 52l-167.429 167.429h402.286q29.714 0 48.286 21.429t18.571 51.714v73.143q0 30.286-18.571 51.714t-48.286 21.429h-402.286l167.429 168q21.714 20.571 21.714 51.429t-21.714 51.429l-42.857 43.429q-21.143 21.143-51.429 21.143-29.714 0-52-21.143l-372-372.571q-21.143-21.143-21.143-51.429z" />
+          </symbol>
+          <symbol id="icon-arrow-right" viewBox="0 0 1024 1024">
+            <title>arrow-right</title>
+            <path class="path1" d="M0 585.143v-73.143q0-30.286 18.571-51.714t48.286-21.429h402.286l-167.429-168q-21.714-20.571-21.714-51.429t21.714-51.429l42.857-42.857q21.714-21.714 51.429-21.714 30.286 0 52 21.714l372 372q21.143 20 21.143 51.429 0 30.857-21.143 52l-372 372q-22.286 21.143-52 21.143-29.143 0-51.429-21.143l-42.857-42.857q-21.714-21.714-21.714-52t21.714-52l167.429-167.429h-402.286q-29.714 0-48.286-21.429t-18.571-51.714z" />
+          </symbol>
+        </defs>
+      </svg>
+
+      <div class="properties">
+        <ul class="property-list list-unstyled">
+          <li class="js-property js-property-isbst">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+             Tree is a valid binary search tree
+          </li>
+          <li class="js-property js-property-1">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+            All nodes are either red or black
+          </li>
+          <li class="js-property js-property-2">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+            The root is black
+          </li>
+          <li class="js-property js-property-3">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+            All leaves are black
+          </li>
+          <li class="js-property js-property-4">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+            Every red node has two black children 
+          </li>
+          <li class="js-property js-property-5">
+            <i class="fa fa-2x fa-check-circle text-success"></i>
+            Every path from root to leaf contain the same number of black nodes
+          </li>
+        </ul>
+      </div>
+
+      <div id="graph" class="graph"></div>
+
+    </div> <!-- /container -->
+
+        <script src="js/vendor/d3.js"></script>
+        <script src="js/vendor/lodash.js"></script>
+
+
+        <script src="js/tree.js"></script>
+        <script src="js/treeView.js"></script>
+        <script src="js/ui.js"></script>
+        <script src="js/main.js"></script>
+
+    </body>
+</html>
