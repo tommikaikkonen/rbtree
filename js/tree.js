@@ -151,16 +151,6 @@ TreeNode.prototype = {
     },
 
     /**
-     * Traverses the (sub-)tree with the instance as root in order.
-     * @param  {function} operation - a function called with each node as the first argument.
-     */
-    inorderTraverse: function inorderTraverse(operation) {
-        if (this.l) this.l.traverse(operation);
-        operation(this);
-        if (this.r) this.r.traverse(operation);
-    },
-
-    /**
      * Switches the instances color property.
      */
     switchColor: function switchColor() {
@@ -218,15 +208,6 @@ Tree.prototype = {
      */
     traverse: function traverse(operation) {
         this.root.traverse(operation);
-    },
-
-    /**
-     * Traverses the tree in order.
-     * @param  {function} operation - a function called with
-     * each node instance as the first argument.
-     */
-    inorderTraverse: function inorderTraverse(operation) {
-        this.root.inorderTraverse(operation);
     },
 
     /**

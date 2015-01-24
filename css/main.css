@@ -7,10 +7,15 @@
 .properties {
     width:300px;
     float:left;
+    padding-left:2em;
 }
 
-.property-list {
-    padding-left:2em;
+.properties ul {
+    padding-left:0;
+}
+
+.property-list i {
+    padding-right: 0.5em;
 }
 
 .graph {

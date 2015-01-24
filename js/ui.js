@@ -3,8 +3,10 @@
  * Encapsulate code relating to the Red-Black Tree Drawer.
  */
 var RedBlackTreeDrawer = function(TreeNode, Tree, NodeView, TreeView, EdgeView) {
+    // This object is returned at the end.
     var obj = {};
 
+    // Attach all the relevant classes.
     obj.TreeNode = TreeNode;
     obj.Tree = Tree;
     obj.NodeView = NodeView;
@@ -55,9 +57,8 @@ var RedBlackTreeDrawer = function(TreeNode, Tree, NodeView, TreeView, EdgeView) 
  * @param  {TreeView} treeView
  */
 var drawToSvg = function drawToSvg(el, treeView) {
-    var nodes = treeView.nodeViews,
-        edges = treeView.edgeViews;
 
+    // Lay out the canvas
     var vis = d3.select(el)
             .html("")
             .append('svg')
@@ -75,40 +76,47 @@ var drawToSvg = function drawToSvg(el, treeView) {
             return d.id;
         };
 
+        // Show which RB tree properties are and are not
+        // fulfilled by the current tree.
         var checkProperties = function checkProperties(treeView) {
             var tree = treeView.tree;
 
-            var isBST = {
+            var properties = [
+                {
                     caseName: 'rbisbst',
-                    val: tree.isBST(),
+                    val: tree.isBST()
                 },
-                rb1 = {
+                {
                     caseName: 'rb1',
-                    val: tree.isRb1Valid(),
+                    val: tree.isRb1Valid()
                 },
-                rb2 = {
+                {
                     caseName: 'rb2',
-                    val: tree.isRb2Valid(),
+                    val: tree.isRb2Valid()
                 },
-                rb3 = {
+                {
                     caseName: 'rb3',
-                    val: tree.isRb3Valid(),
+                    val: tree.isRb3Valid()
                 },
-                rb4 = {
+                {
                     caseName: 'rb4',
-                    val: tree.isRb4Valid(),
+                    val: tree.isRb4Valid()
                 },
-                rb5 = {
+                {
                     caseName: 'rb5',
-                    val: tree.isRb5Valid(),
-                };
+                    val: tree.isRb5Valid()
+                }
+            ];
 
-            var properties = [isBST, rb1, rb2, rb3, rb4, rb5];
-
+            // Generate the UI elements for showing
+            // the properties.
             d3.selectAll('.js-property').each(function() {
                 for (var i=0; i < this.classList.length; i++) {
+                    // Get the property number for the element
                     var match = this.classList[i].match(/js-property-([a-zA-Z0-9]+)/);
                     var icon = d3.select(this).select('i');
+
+                    // To start, revert all classes to the original state.
                     icon.classed({
                         'fa-times-circle': false,
                         'fa-check-circle': false,
@@ -207,7 +215,7 @@ var drawToSvg = function drawToSvg(el, treeView) {
             });
 
 
-
+        // Add the rotate left UI element
         gEnter.append('svg:use')
             .classed('rotate_left', true)
             .attr({width: 24, height:24})
@@ -224,9 +232,10 @@ var drawToSvg = function drawToSvg(el, treeView) {
                 draw(treeView);
             });
 
+        // Update the rotate left UI element
         g.select('use.rotate_left').style('opacity', 0)
-            .on('mouseover', null)
-            .on('mouseout', null)
+            .on('mouseover', null) // Remove previous binding
+            .on('mouseout', null) // Remove previous binding
             .filter(function(d) {
                 return treeView.tree.isLeftRotateable(d.node);
             })
@@ -268,6 +277,8 @@ var drawToSvg = function drawToSvg(el, treeView) {
                 d3.select(this).style('opacity', 0.3);
             });
 
+        // Insert the text UI element inside tree nodes.
+        // Shows the numeric value of the node.
         var nodeValue = gEnter.append('svg:text')
             .classed('node_value', true)
             .attr('fill', "white")
