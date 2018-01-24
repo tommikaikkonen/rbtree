@@ -20,6 +20,8 @@
 
 .graph {
     float:right;
+    position: absolute;
+    margin-left: 400px;
 }
 
 
